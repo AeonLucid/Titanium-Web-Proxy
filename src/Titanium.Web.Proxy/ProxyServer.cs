@@ -473,7 +473,7 @@ namespace Titanium.Web.Proxy
             systemProxySettingsManager.SetProxy(
                 Equals(endPoint.IpAddress, IPAddress.Any) |
                 Equals(endPoint.IpAddress, IPAddress.Loopback)
-                    ? "localhost"
+                    ? "127.0.0.1"
                     : endPoint.IpAddress.ToString(),
                 endPoint.Port,
                 protocolType);
@@ -486,26 +486,6 @@ namespace Titanium.Web.Proxy
             if (isHttps)
             {
                 endPoint.IsSystemHttpsProxy = true;
-            }
-
-            string? proxyType = null;
-            switch (protocolType)
-            {
-                case ProxyProtocolType.Http:
-                    proxyType = "HTTP";
-                    break;
-                case ProxyProtocolType.Https:
-                    proxyType = "HTTPS";
-                    break;
-                case ProxyProtocolType.AllHttp:
-                    proxyType = "HTTP and HTTPS";
-                    break;
-            }
-
-            if (protocolType != ProxyProtocolType.None)
-            {
-                Console.WriteLine("Set endpoint at Ip {0} and port: {1} as System {2} Proxy", endPoint.IpAddress,
-                    endPoint.Port, proxyType);
             }
         }
 
