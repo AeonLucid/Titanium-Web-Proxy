@@ -27,12 +27,14 @@ namespace Titanium.Web.Proxy.Helpers
 
         public ValueTask WriteLineAsync(CancellationToken cancellationToken = default)
         {
-            throw new System.NotImplementedException();
+            // throw new System.NotImplementedException();
+            return new ValueTask();
         }
 
         public ValueTask WriteLineAsync(string value, CancellationToken cancellationToken = default)
         {
-            throw new System.NotImplementedException();
+            // throw new System.NotImplementedException();
+            return new ValueTask();
         }
     }
 }
